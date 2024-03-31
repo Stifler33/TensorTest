@@ -1,5 +1,6 @@
 from TensorPage import Stage_1, Stage_2
 import logging
+
 logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode='w')
 logger = logging.getLogger(__name__)
 

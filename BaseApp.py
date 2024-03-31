@@ -5,8 +5,9 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+        #self.logger = logger
         self.base_url = "https://sbis.ru/"
-        driver.implicitly_wait(20)
+        driver.implicitly_wait(5)
 
     def find_element(self, by, value):
         return self.driver.find_element(by, value)
