@@ -28,15 +28,14 @@ class Stage_1(BasePage):
             time.sleep(1)
             logging.info(f"start search block power in human\nurl : {self.driver.current_url}")
             blockHuman = self.find_element(By.CLASS_NAME, "tensor_ru-Index__block4-content")
-            logging.info(f"block power in human {blockHuman}")
             elements = blockHuman.find_elements(By.TAG_NAME, "p")
             for element in elements:
-                if element.text == "Сила в людя":
+                if element.text == "Сила в людях":
                     powerInHuman = element
             if powerInHuman is None:
                 logging.error("banner is not found")
             else:
-                logging.info(f"banner power in human found {powerInHuman.text}")
+                logging.info(f"banner power in human found '{powerInHuman.text}'")
             return powerInHuman
         except EC.NoSuchElementException:
             logging.warning("power in human is not found")
@@ -86,7 +85,7 @@ class Stage_2(BasePage):
             logging.info(f"list partner : {list_partner}")
             return list_partner
         except EC.StaleElementReferenceException:
-            logging.info(f"received StaleElementReferenceException")
+            logging.info("received StaleElementReferenceException")
             return []
 
     def edit_region(self):
